@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/unfollowers.css') }}">
+    <title>InstaUnFollowers</title>
+</head>
+<body>
+<div class="d-flex align-items-center justify-content-center" style="height: 800px;">
+    <div class="container-sm">
+        <div class="table-responsive">
+            <table class="table table-hover table-dark">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Profile Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for unfollower in unfollowers %}
+                    <tr>
+                        <td>{{ loop.index + (page - 1) * per_page }}</td>
+                        <td>{{ unfollower }}</td>
+                        <td>
+                            <a href="https://www.instagram.com/{{ unfollower }}">
+                                https://www.instagram.com/{{ unfollower }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            {{ pagination.links }}
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <a href="/">
+                <input type="submit" action="/" class="btn-lg btn-outline-light" value="Back">
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

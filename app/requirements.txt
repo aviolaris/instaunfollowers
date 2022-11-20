@@ -1,0 +1,13 @@
+cachelib
+click
+colorama
+Flask
+flask-paginate
+Flask-Session
+importlib-metadata
+itsdangerous
+Jinja2
+MarkupSafe
+waitress
+Werkzeug
+zipp

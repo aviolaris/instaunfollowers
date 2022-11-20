@@ -1,0 +1,38 @@
+# PyCharm:
+.idea/
+
+# Flask:
+instance/
+.webassets-cache
+
+# Environments:
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / DLL files:
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer logs:
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit testing / Coverage reports:
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/

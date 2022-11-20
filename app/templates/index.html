@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+    <title>InstaUnFollowers</title>
+</head>
+<body>
+<div class="upload-form-dark">
+    <form class="d-flex justify-content-center form-inline my-2 my-lg-0" action="/" method="POST"
+          enctype="multipart/form-data">
+        <h5 style="padding-bottom: 20px;">Upload your instagram information file.</h5>
+        <input class="form-control form-control-lg" type="file" name="file" placeholder="Search">
+        <input type="submit" class="btn-lg btn-outline-light mt-4" value="Upload">
+    </form>
+</div>
+</body>
+</html>
