@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+}
+
+.table-dark, .table-dark > td, .table-dark > th {
+    background-color: #494949;
+    color: white;
+    border: 3px red;
+}
+
+.page-link {
+    margin-top: -4px;
+    margin-left: auto;
+    color: #dedede;
+    background-color: #343434;
+
+}
+
+.page-item.disabled .page-link {
+    color: #868e96;
+    background-color: #494949;
+    border-color: #ddd;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border: 2px solid #e9ecef;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #11ff00;
+}
+
+.btn-group-lg > .btn, .btn-lg:hover {
+    color: black;
+    cursor: pointer;
+}

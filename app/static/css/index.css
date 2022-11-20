@@ -1,0 +1,37 @@
+.upload-form-dark {
+    height: 100vh;
+    height: 100vh;
+    background: black url(../images/background.jpg) no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+
+.upload-form-dark form {
+    max-width: 440px;
+    min-width: 440px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color: #e5e5e5;
+    box-shadow: 0px -1px 2px 2px #818181;
+    background-color: transparent;
+}
+
+.upload-form-dark form .form-control {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #434a52;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+}
+
+.btn-group-lg > .btn, .btn-lg:hover {
+    color: black;
+    cursor: pointer;
+}
