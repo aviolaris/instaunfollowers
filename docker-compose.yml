@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  instaunfollowers:
+    build:
+      context: ../InstaUnFollowers
+      dockerfile: Dockerfile
+    image: "instaunfollowers:latest"
+    container_name: "instaunfollowers"
+    ports:
+      - "5000:5000"
