@@ -6,6 +6,8 @@
 ![Code size](https://img.shields.io/github/languages/code-size/aviolaris/InstaUnFollowers)
 ![GitHub repo size](https://img.shields.io/github/repo-size/aviolaris/InstaUnFollowers)
 ![Visitors count](https://visitor-badge.laobi.icu/badge?page_id=InstaUnFollowers)
+[![Docker Pulls](https://badgen.net/docker/pulls/aviolaris/instaunfollowers?icon=docker&label=pulls)](https://hub.docker.com/r/aviolaris/instaunfollowers)
+
 ## TL;DR
 The world's first offline Instagram unfollower tracker, which ensures that your account will not get suspended by `Instagram`.
 
