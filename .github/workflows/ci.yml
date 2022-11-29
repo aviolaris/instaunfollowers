@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
       -
         name: Get tag
-        id: repository
+        id: get_tag
         run: echo "::set-output name=tag::$(git describe --tags HEAD)"
       -
         name: Set up QEMU
@@ -53,10 +53,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ github.repository }}:${{ steps.repository.outputs.tag }},
+            ${{ github.repository }}:${{ steps.get_tag.outputs.tag }},
             ${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:$tag_name,
+            ghcr.io/${{ github.repository }}:${{ steps.get_tag.outputs.tag }},
             ghcr.io/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}
-          env:
-            tag_name: ${{ steps.repository.outputs.tag }}
