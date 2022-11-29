@@ -5,10 +5,24 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+    <script async defer src="{{ url_for('static', filename='js/buttons.js') }}"></script>
     <title>InstaUnFollowers</title>
 </head>
 <body>
 <div class="upload-form-dark">
+    <div class="mx-auto pt-4" style="width:258px; border: 2px white">
+        <a class="github-button" href="https://github.com/aviolaris"
+           data-color-scheme="dark_high_contrast"
+           data-size="large"
+           data-show-count="true"
+           aria-label="Follow @aviolaris on GitHub">Follow @aviolaris</a>
+        <a class="github-button" href="https://github.com/aviolaris/instaunfollowers"
+           data-color-scheme="dark_high_contrast"
+           data-icon="octicon-star"
+           data-size="large"
+           data-show-count="true"
+           aria-label="Star aviolaris/instaunfollowers on GitHub">Star</a>
+    </div>
     <form class="d-flex justify-content-center form-inline my-2 my-lg-0" action="/" method="POST"
           enctype="multipart/form-data">
         <h5 style="padding-bottom: 20px;">Upload your instagram information file.</h5>
