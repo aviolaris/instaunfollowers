@@ -8,6 +8,7 @@ importlib-metadata
 itsdangerous
 Jinja2
 MarkupSafe
+requests
 waitress
 Werkzeug
 zipp
