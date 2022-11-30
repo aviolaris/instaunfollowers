@@ -30,7 +30,7 @@ Build the Docker image:
     
 Run the Docker container:
 
-    docker run -p 5000:5000 -d instaunfollowers
+    docker run -p 5000:5000 -d --name InstaUnFollowers instaunfollowers
 
 ### <a href="https://docs.docker.com/compose/install/">Docker Compose</a>
 
@@ -46,7 +46,7 @@ Build the Podman image:
     
 Run the Podman container:
 
-    podman run -p 5000:5000 -d instaunfollowers
+    podman run -p 5000:5000 -d --name InstaUnFollowers instaunfollowers
     
 ### <a href="https://github.com/containers/podman-compose#installation">Podman Compose</a>
 
