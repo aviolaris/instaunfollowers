@@ -1,8 +1,12 @@
+"""Imports"""
 import sys
 import requests
 
 
 def fetch_url(url):
+    """
+    Fetch url, receive response and convert it to exit code.
+    """
     try:
         response = requests.get(url, timeout=5)
         status_code = response.status_code
