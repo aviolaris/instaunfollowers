@@ -59,7 +59,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ### Τρέξιμο του docker container
 Εκτελέστε την ακόλουθη εντολή στη γραμμή εντολών.
 
-    docker run -p 5000:5000 -d aviolaris/instaunfollowers:latest
+    docker run -p 5000:5000 -d --name InstaUnFollowers aviolaris/instaunfollowers:latest
 
 ### Χρήση της εφαρμογής
 Πλοηγηθείτε στη διεύθυνση: http://localhost:5000.

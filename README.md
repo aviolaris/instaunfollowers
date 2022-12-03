@@ -59,7 +59,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 Run the following command in the command prompt.
 
-    docker run -p 5000:5000 -d aviolaris/instaunfollowers:latest
+    docker run -p 5000:5000 -d --name InstaUnFollowers aviolaris/instaunfollowers:latest
 
 ### Use the application
 Navigate to the address: http://localhost:5000.
