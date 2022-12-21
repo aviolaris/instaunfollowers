@@ -103,6 +103,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 - Το εικονίδιο του λογότυπου της εφαρμογής σχεδιάστηκε από τον Björn Andersson του <a href="https://thenounproject.com/browse/icons/term/follow/" target="_blank">Noun Project</a>.
 - Η γραμματοσειρά του λογότυπου της εφαρμογής σχεδιάστηκε από το <a href="https://www.sudtipos.com/">Sudtipos</a> με άδεια χρήσης <a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ofl">Open Font License</a>.
 
+## Δημοσιότητα
+
+<a href="https://iguru.gr/instaunfollowers-nomimos-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516969-4b48a927-33da-40f2-a161-fd521a094345.jpg"></a> <a href="https://www.techwar.gr/110338/instaunfollowers-o-nomimos-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516978-db730c0c-fc1b-43ce-aa03-86671e1b9161.jpg"></a> <a href="https://digiworld.gr/2022/12/07/instaunfollowers-%CE%BF-%CE%BD%CF%8C%CE%BC%CE%B9%CE%BC%CE%BF%CF%82-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516983-765da894-6cb1-4ab6-997b-0940d2780c53.jpg"></a>
+
 ## Αδεια χρήσης
 
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.el"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br/><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.el">[Creative Commons] (Αναφορά Δημιουργού-Μη Εμπορική Χρήση-Όχι Παράγωγα Έργα 4.0 Διεθνές)</a>.
