@@ -5,7 +5,17 @@ import requests
 
 def fetch_url(url):
     """
-    Fetch url, receive response and convert it to exit code.
+    Fetch the given URL, receive response, and convert it to exit code.
+
+    Parameters:
+    - url: str: the URL to fetch
+    - timeout: int: the number of seconds to wait for a response before timing out
+
+    Returns:
+    - int: the exit code corresponding to the response
+
+    Raises:
+    - requests.exceptions.Timeout: if the request times out
     """
     try:
         response = requests.get(url, timeout=5)
