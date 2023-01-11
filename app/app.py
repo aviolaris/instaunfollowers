@@ -37,8 +37,14 @@ def parse_usernames_and_links(html_source):
     """
     Parse usernames and links.
     """
+    if not isinstance(html_source, str):
+        raise TypeError('html_source must be a string')
+
     links_usernames_regexp = r'(?<=\<a target="_blank" href=")(.*?)(?=\</a>)'
-    return re.findall(links_usernames_regexp, str(html_source))
+    try:
+        return re.findall(links_usernames_regexp, html_source)
+    except Exception as exc:
+        raise ValueError(f'Error while parsing html source: {exc}') from exc
 
 
 def find_unfollowers(file_path):
@@ -151,5 +157,6 @@ def unfollowers():
 if __name__ == '__main__':
     create_upload_dir()
     from waitress import serve
+
     server_port = os.environ.get('PORT', '5000')
     serve(app, host="0.0.0.0", port=server_port)
