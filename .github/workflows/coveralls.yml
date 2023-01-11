@@ -26,4 +26,4 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GHT }}
-          path--to-lcov: coverage.xml
+          path-to-lcov: coverage.xml
