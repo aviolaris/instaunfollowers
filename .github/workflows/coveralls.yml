@@ -1,0 +1,28 @@
+---
+name: Coveralls
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip install -r requirements.txt
+      - name: Collect coverage data
+        run: |
+          coverage run --source=app -m unittest discover
+      - name: Report coverage to coveralls
+        uses: coverallsapp/github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHT }}
