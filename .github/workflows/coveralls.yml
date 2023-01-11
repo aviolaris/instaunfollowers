@@ -17,13 +17,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r app/requirements.txt
-          pip install pytest
-          pip install pytest-cov
+          pip install coverage coveralls
       - name: Collect coverage data
         run: |
-          pytest --cov --cov-report lcov
+          coverage run --source=app -m unittest discover
       - name: Report coverage to coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GHT }}
-          path-to-lcov: ./coverage.lcov
