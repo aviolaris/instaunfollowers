@@ -19,11 +19,13 @@ jobs:
           python -m venv env
           source env/bin/activate
           pip install -r app/requirements.txt
-          pip install coverage coveralls
+          pip install pytest
+          pip install pytest-cov
       - name: Collect coverage data
         run: |
-          coverage run --source=app -m unittest discover
+          pytest --cov --cov-report lcov
       - name: Report coverage to coveralls
         uses: coverallsapp/github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GHT }}
+        with:
+          github-token: ${{ secrets.GHT }}
+          path-to-lcov: ./coverage.lcov
