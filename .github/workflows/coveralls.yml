@@ -16,6 +16,7 @@ jobs:
           python-version: 3.11
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r app/requirements.txt
           pip install pytest
           pip install pytest-cov
