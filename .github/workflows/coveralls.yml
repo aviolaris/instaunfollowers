@@ -34,5 +34,5 @@ jobs:
         run: |
           pytest --cov=app --cov-report lcov
         with:
-            github-token: ${{ secrets.GHT }}
-            path-to-lcov: coverage.lcov
+          github-token: ${{ secrets.GHT }}
+          path-to-lcov: coverage.lcov
