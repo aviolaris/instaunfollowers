@@ -36,3 +36,4 @@ jobs:
         with:
           github-token: ${{ secrets.GHT }}
           path-to-lcov: coverage.lcov
+          repo_token: ${{ COVERALLS_REPO_TOKEN }}
