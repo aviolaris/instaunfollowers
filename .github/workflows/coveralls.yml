@@ -22,8 +22,8 @@ jobs:
           pip install pytest-cov
           pip install coveralls
       - name: Collect coverage data
-        env:
-          pytest_addopts: "--durations=0"
+#        env:
+#          pytest_addopts: "--durations=0"
         run: |
           pytest --cov app --cov-append .
       - name: Report coverage to coveralls
