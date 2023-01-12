@@ -21,12 +21,12 @@ jobs:
           pip install pytest-cov
           pip install coveralls
       - name: Collect coverage data
-        with:
+        env:
           pytest_addopts: "--durations=0"
         run: |
           pytest --cov app --cov-append .
       - name: Report coverage to coveralls
-        with:
+        env:
           github-token: ${{ secrets.GHT }}
         run: |
           coveralls --service=github
