@@ -26,10 +26,13 @@ jobs:
           pip install -r app/requirements.txt
           pip install pytest
           pip install pytest-cov
+      - name: Run Tests
+        run: |
+          pytest --cov=app
+          coverage report -m
+          coverage lcov
       - name: Coveralls
         uses: coverallsapp/github-action@master
-        run: |
-          pytest --cov=app --cov-report lcov
         with:
           github-token: ${{ secrets.GHT }}
           path-to-lcov: coverage.lcov
