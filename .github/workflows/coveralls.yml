@@ -6,28 +6,33 @@ on:
       - master
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        python-version: [
+          "3.9",
+          "3.10",
+          "3.11",
+        ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set up Python
+      - name: Set up Python ${{matrix.python-version}}
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: ${{matrix.python-version}}
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r app/requirements.txt
           pip install pytest
           pip install pytest-cov
-          pip install coveralls
       - name: Collect coverage data
-#        env:
-#          pytest_addopts: "--durations=0"
         run: |
-          pytest --cov app --cov-append .
-      - name: Report coverage to coveralls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GHT }}
-        run: |
-          coveralls --verbose --service=github
+          pytest --cov=app --cov-report lcov
+      - name: Upload to coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          path-to-lcov: ./coverage.lcov
+          github-token: ${{ secrets.GHT }}
