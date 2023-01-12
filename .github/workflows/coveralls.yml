@@ -27,6 +27,6 @@ jobs:
           pytest --cov app --cov-append .
       - name: Report coverage to coveralls
         env:
-          github-token: ${{ secrets.GHT }}
+          GITHUB_TOKEN: ${{ secrets.GHT }}
         run: |
           coveralls --service=github
