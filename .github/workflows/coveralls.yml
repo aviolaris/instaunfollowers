@@ -5,7 +5,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,11 +19,16 @@ jobs:
           pip install -r app/requirements.txt
           pip install pytest
           pip install pytest-cov
+          pip install coveralls
       - name: Collect coverage data
+        with:
+          pytest_addopts: "--durations=0"
         run: |
-          python -m pytest --cov=./app --cov-report xml
+          pytest --cov app --cov-append .
       - name: Report coverage to coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GHT }}
           path-to-lcov: coverage.xml
+        run: |
+          coveralls --service=github
