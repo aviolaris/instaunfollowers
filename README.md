@@ -4,9 +4,8 @@
 
 [![ci](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml/badge.svg)](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml)
 [![Pylint](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml/badge.svg)](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml)
-![Code size](https://img.shields.io/github/languages/code-size/aviolaris/InstaUnFollowers)
-![GitHub repo size](https://img.shields.io/github/repo-size/aviolaris/InstaUnFollowers)
-![Visitors count](https://visitor-badge.laobi.icu/badge?page_id=InstaUnFollowers)
+[![Coverage Status](https://coveralls.io/repos/github/aviolaris/instaunfollowers/badge.svg?branch=master)](https://coveralls.io/github/aviolaris/instaunfollowers?branch=master)
+[![GitHub Stars](https://badgen.net/github/stars/aviolaris/instaunfollowers?icon=github&label=stars)](https://github.com/aviolaris/instaunfollowers)
 [![Docker Pulls](https://badgen.net/docker/pulls/aviolaris/instaunfollowers?icon=docker&label=pulls)](https://hub.docker.com/r/aviolaris/instaunfollowers)
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/aviolaris/instaunfollowers/blob/master/README.md)
