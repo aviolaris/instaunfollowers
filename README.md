@@ -12,10 +12,10 @@
 [![gr](https://img.shields.io/badge/lang-gr-blue.svg)](https://github.com/aviolaris/instaunfollowers/blob/master/README.gr.md)
 
 ## TL;DR
-The world's first legal unfollower tracker for `Instagram`, which ensures that your account will not be suspended for violating platform's terms of use.
+The world's first legal unfollower tracker for Instagram, which ensures that your account will not be suspended for violating platform's terms of use.
 
 ## Long Story
-`Instagram` implements powerful algorithms and artificial intelligence to detect whether requests to it are made by human users or by automated tools. Once it detects suspicious behaviors and patterns, it imposes a block, temporary at best or permanent at worst. Whether you have already suffered a temporary block and are trying to avoid another, or you do not want to risk one in the first place, it would be wise to avoid tools that automate the finding and the removal of the unfollowers en masse. Once you use such tools, it is only a matter of time before you get confronted with a message indicating that your account has been disabled for violating Instagram's terms of use. That is where the present project comes into play and ensures the longevity of your account by performing all automated actions offline. To achieve this, `InstaUnFollowers` uses the `Instagram Information File`, which Instagram is obliged to provide, according to <a href="https://gdprinfo.eu/en-article-15">Article 15</a> of the <a href="https://gdprinfo.eu/">General Data Protection Regulation</a>.
+Instagram implements powerful algorithms and artificial intelligence to detect whether requests to it are made by human users or by automated tools. Once it detects suspicious behaviors and patterns, it imposes a block, temporary at best or permanent at worst. Whether you have already suffered a temporary block and are trying to avoid another, or you do not want to risk one in the first place, it would be wise to avoid tools that automate the finding and the removal of the unfollowers en masse. Once you use such tools, it is only a matter of time before you get confronted with a message indicating that your account has been disabled for violating Instagram's terms of use. That is where the present project comes into play and ensures the longevity of your account by performing all automated actions offline. To achieve this, InstaUnFollowers uses the `Instagram Information File`, which Instagram is obliged to provide, according to <a href="https://gdprinfo.eu/en-article-15">Article 15</a> of the <a href="https://gdprinfo.eu/">General Data Protection Regulation</a>.
 
 ## Usage instructions
 
@@ -63,7 +63,7 @@ Run the following command in the command prompt.
 ### Use the application
 Navigate to the address: http://localhost:5000.
 
-Download your `Instagram Information File` (in HTML format) from <a href="https://www.instagram.com/download/request/">here</a> and upload it to the `InstaUnFollowers` web application to instantly receive a list of all the unfollowers of your account, without sending any requests to the Instagram servers.
+Download your `Instagram Information File` (in HTML format) from <a href="https://www.instagram.com/download/request/">here</a> and upload it to the InstaUnFollowers web application to instantly receive a list of all the unfollowers of your account, without sending any requests to the Instagram servers.
 
 <img width="1096" alt="preview" src="https://user-images.githubusercontent.com/48277853/201779769-c5887767-efb2-41ac-a005-b2575d747776.png">
 
