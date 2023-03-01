@@ -56,8 +56,8 @@ def find_unfollowers(file_path):
         files = instagram_file.namelist()
         followers_path = list(filter(lambda file: 'followers.html' in file, files))
         following_path = list(filter(lambda file: 'following.html' in file, files))
-        followers_html = instagram_file.read(followers_path[0])
-        following_html = instagram_file.read(following_path[0])
+        followers_html = instagram_file.read(followers_path[0]).decode('utf-8')
+        following_html = instagram_file.read(following_path[0]).decode('utf-8')
 
         # Following
         following_list = parse_usernames_and_links(following_html)
