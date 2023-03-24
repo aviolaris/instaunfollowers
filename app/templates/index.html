@@ -7,7 +7,14 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.6.4.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script async defer src="{{ url_for('static', filename='js/buttons.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#messageModal').modal('show');
+        });
+    </script>
 </head>
 <body>
 <div class="upload-form-dark">
@@ -30,6 +37,35 @@
         <input class="form-control form-control-lg" type="file" name="file" placeholder="Search">
         <input type="submit" class="btn-lg btn-outline-light mt-4" value="Upload">
     </form>
+    <div class="modal" tabindex="-1" role="dialog" id="messageModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">InstaUnFollowers</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: justify;">Meta periodically modifies the structure of Instagram's information
+                        file to prevent tools like the present one from operating. If you encounter any difficulties,
+                        please file an issue.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary modal-btn"
+                            onclick="window.location.href='https://github.com/aviolaris/instaunfollowers/issues'">
+                        <svg viewBox="0 0 16 16" width="17" height="17"
+                             class="align-middle d-inline-block">
+                            <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="white"></path>
+                            <path fill-rule="evenodd"
+                                  d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"
+                                  fill="white"></path>
+                        </svg>
+                        File an Issue
+                    </button>
+                    <button type="button" class="btn btn-primary modal-btn" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

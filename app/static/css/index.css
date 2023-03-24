@@ -35,3 +35,51 @@
     color: black;
     cursor: pointer;
 }
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.modal-backdrop {
+    opacity: 0.8 !important;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.modal-content {
+    background-color: #272b33;
+    color: white;
+    width: 90%;
+    max-width: 600px;
+}
+
+.modal-btn {
+    border-color: white;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.modal-btn:hover {
+    background-color: #333333;
+    cursor: pointer;
+    border-color: white;
+}
+
+.close {
+    color: white;
+}
+
+.close:hover {
+    color: white;
+    cursor: pointer;
+}
