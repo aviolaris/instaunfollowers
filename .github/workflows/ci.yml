@@ -34,7 +34,7 @@ jobs:
           images: ${{ github.repository }}
       -
         name: Login to DH
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.DHT }}
