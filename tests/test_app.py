@@ -1,12 +1,12 @@
 """Imports"""
 from unittest import TestCase
-from app.app import parse_usernames_and_links, get_unfollowers_paginated
+from app.app import parse_usernames, get_unfollowers_paginated, update_needed
 
 
 class Test(TestCase):
     """Unit Tests"""
 
-    def test_parse_usernames_and_links_valid_input(self):
+    def test_parse_usernames_valid_input(self):
         """
         Test the function with valid html source
         """
@@ -15,42 +15,42 @@ class Test(TestCase):
                       '</div><div><a target="_blank" ' \
                       'href="https://www.instagram.com/user2">user2</a>' \
                       '</div>'
-        expected_output = ['https://www.instagram.com/user1">user1',
-                           'https://www.instagram.com/user2">user2']
-        result = parse_usernames_and_links(html_source)
+        expected_output = ['user1',
+                           'user2']
+        result = parse_usernames(html_source)
         self.assertEqual(result, expected_output)
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 2)
 
-    def test_parse_usernames_and_links_valid_input_with_no_links(self):
+    def test_parse_usernames_valid_input_with_no_links(self):
         """
         Test the function with html source that contains no links
         """
         html_source = '<div>test</div>'
         expected_output = []
-        result = parse_usernames_and_links(html_source)
+        result = parse_usernames(html_source)
         self.assertEqual(result, expected_output)
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 0)
 
-    def test_parse_usernames_and_links_empty_input(self):
+    def test_parse_usernames_empty_input(self):
         """
         Test the function with an empty input
         """
         html_source = ''
         expected_output = []
-        result = parse_usernames_and_links(html_source)
+        result = parse_usernames(html_source)
         self.assertEqual(result, expected_output)
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 0)
 
-    def test_parse_usernames_and_links_invalid_input(self):
+    def test_parse_usernames_invalid_input(self):
         """
         Test the function with an invalid input (not a string)
         """
         html_source = ['<a target="_blank" href="https://instagram.com/user1">user1</a>',
                        '<a target="_blank" href="https://instagram.com/user2">user2</a>']
-        self.assertRaises(TypeError, parse_usernames_and_links, html_source)
+        self.assertRaises(TypeError, parse_usernames, html_source)
 
     def test_get_unfollowers_paginated(self):
         """
@@ -105,3 +105,57 @@ class Test(TestCase):
                                                    offset,
                                                    per_page),
                          expected_result)
+
+    def test_update_needed(self):
+        """
+        Test the function with multiple conditions.
+        """
+        # Test same version
+        current_version = "v1.0.0"
+        latest_version = "v1.0.0"
+        self.assertFalse(update_needed(current_version, latest_version))
+
+        # Test current version older
+        current_version = "v1.0.0"
+        latest_version = "v2.0.0"
+        self.assertTrue(update_needed(current_version, latest_version))
+
+        # Test current version newer
+        current_version = "v2.0.0"
+        latest_version = "v1.0.0"
+        self.assertFalse(update_needed(current_version, latest_version))
+
+        # Test major version of current version older
+        current_version = "v1.0.0"
+        latest_version = "v2.0.0"
+        self.assertTrue(update_needed(current_version, latest_version))
+
+        # Test major version of current version newer
+        current_version = "v2.0.0"
+        latest_version = "v1.0.0"
+        self.assertFalse(update_needed(current_version, latest_version))
+
+        # Test minor version of current version older
+        current_version = "v1.1.0"
+        latest_version = "v1.2.0"
+        self.assertTrue(update_needed(current_version, latest_version))
+
+        # Test minor version of current version newer
+        current_version = "v1.2.0"
+        latest_version = "v1.1.0"
+        self.assertFalse(update_needed(current_version, latest_version))
+
+        # Test patch version of current version older
+        current_version = "v1.0.1"
+        latest_version = "v1.0.2"
+        self.assertTrue(update_needed(current_version, latest_version))
+
+        # Test patch version of current version newer
+        current_version = "v1.0.2"
+        latest_version = "v1.0.1"
+        self.assertFalse(update_needed(current_version, latest_version))
+
+        # Test invalid version strings
+        current_version = "1.0.0"
+        latest_version = "v2.0.0"
+        self.assertFalse(update_needed(current_version, latest_version))

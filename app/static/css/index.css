@@ -83,3 +83,24 @@
     color: white;
     cursor: pointer;
 }
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 2s ease-in-out infinite;
+    color: red;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.blink:hover {
+    text-decoration: none;
+    color: red;
+}
