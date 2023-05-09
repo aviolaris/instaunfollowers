@@ -1,4 +1,4 @@
-astroid==2.15.3
+astroid==2.15.4
 blinker==1.6.2
 cachelib==0.10.2
 certifi==2022.12.7
