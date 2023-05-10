@@ -3,11 +3,11 @@ import logging
 import os.path
 import re
 import zipfile
-import requests
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_paginate import Pagination
 from werkzeug.utils import secure_filename
 from flask_session import Session
+from upd import get_latest_version, update_needed
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
@@ -25,32 +25,9 @@ logging.basicConfig(format='%(asctime)s:%(levelname)s:%(filename)s:%(funcName)s:
 # Upload folder
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 # Current version
-CURRENT_VERSION = 'v1.11.2'
-
-
-def update_needed(current_version: str, latest_version: str) -> bool:
-    """
-    Check whether an update is needed, based on the comparison of two version strings.
-
-    Args:
-        current_version: A string representing the current version, in the format 'vX.Y.Z'.
-        latest_version: A string representing the latest version available, in the same format.
-
-    Returns:
-        A boolean value indicating if the current version is older than the latest version.
-    """
-    version_pattern = r'^v\d+\.\d+\.\d+$'
-    if not (re.match(version_pattern, current_version) and
-            re.match(version_pattern, latest_version)):
-        return False
-    current_version_parts = map(int, current_version[1:].split('.'))
-    latest_version_parts = map(int, latest_version[1:].split('.'))
-    for current_part, latest_part in zip(current_version_parts, latest_version_parts):
-        if current_part < latest_part:
-            return True
-        if current_part > latest_part:
-            return False
-    return False
+CURRENT_VERSION = 'v1.11.3'
+# Update needed
+UPDATE_NEEDED = bool(update_needed(CURRENT_VERSION, get_latest_version()))
 
 
 def create_upload_dir():
@@ -116,14 +93,7 @@ def index():
     """
     Display the index page.
     """
-    latest_releases_url = 'https://api.github.com/repos/aviolaris/instaunfollowers/releases/latest'
-    response = requests.get(latest_releases_url, timeout=10)
-    if response.status_code == 200:
-        data = response.json()
-        latest_version = data['tag_name']
-        session['update_needed'] = bool(update_needed(CURRENT_VERSION, latest_version))
-    else:
-        logging.error("Failed to retrieve latest release version: %s", response.status_code)
+    session['update_needed'] = UPDATE_NEEDED
     logging.info('Displaying the index page.')
     return render_template('index.html')
 
