@@ -65,7 +65,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 Κατεβάστε το `Instagram Information File` (σε HTML μορφή) από <a href="https://www.instagram.com/download/request/">εδώ</a> και μεταφορτώστε το στην παρούσα web εφαρμογή ώστε να λάβετε άμεσα τη λίστα με όλους τους unfollowers του λογαριασμού σας, χωρίς να σταλεί κανένα απολύτως request στους διακομιστές του Instagram.
 
-<img width="1096" alt="preview" src="https://user-images.githubusercontent.com/48277853/201779769-c5887767-efb2-41ac-a005-b2575d747776.png">
+<img width="1096" alt="preview" src="https://github.com/aviolaris/instaunfollowers/assets/48277853/0d75f2d1-e37b-4927-96cc-eb4149d4051c">
 
 ## Deployment
 
