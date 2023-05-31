@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "secret_key"
 # File settings
 app.config['ALLOWED_EXTENSIONS'] = ['.zip']
-app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 1000 * 1024 * 1024
 # Session settings
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
