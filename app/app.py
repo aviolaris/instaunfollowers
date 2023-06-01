@@ -164,7 +164,6 @@ def unfollowers():
 
 if __name__ == '__main__':
     create_upload_dir()
-    from waitress import serve
-
-    server_port = os.environ.get('PORT', '5000')
-    serve(app, host="0.0.0.0", port=server_port)
+    from gevent.pywsgi import WSGIServer
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server.serve_forever()
