@@ -1,4 +1,4 @@
-astroid==2.15.4
+astroid==2.15.5
 blinker==1.6.2
 cachelib==0.10.2
 certifi==2023.5.7
@@ -17,12 +17,12 @@ Jinja2==3.1.2
 lazy-object-proxy==1.9.0
 MarkupSafe==2.1.2
 mccabe==0.7.0
-platformdirs==3.5.0
+platformdirs==3.5.1
 pylint==2.17.2
-requests==2.30.0
+requests==2.31.0
 tomlkit==0.11.8
 urllib3==2.0.2
 waitress==2.1.2
-Werkzeug==2.3.3
+Werkzeug==2.3.4
 wrapt==1.15.0
 zipp==3.15.0
