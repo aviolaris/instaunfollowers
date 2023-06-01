@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "secret_key"
 # File settings
 app.config['ALLOWED_EXTENSIONS'] = ['.zip']
-app.config['MAX_CONTENT_LENGTH'] = 1000 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 10000 * 1024 * 1024
 # Session settings
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -26,7 +26,7 @@ logging.basicConfig(format='%(asctime)s:%(levelname)s:%(filename)s:%(funcName)s:
 # Upload folder
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 # Current version
-CURRENT_VERSION = 'v1.11.4'
+CURRENT_VERSION = 'v1.11.5'
 # Update needed
 UPDATE_NEEDED = bool(update_needed(CURRENT_VERSION, get_latest_version()))
 
