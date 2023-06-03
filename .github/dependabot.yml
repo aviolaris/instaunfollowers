@@ -5,9 +5,9 @@ updates:
     directory: "/app"
     schedule:
       interval: "weekly"
-    target-branch: "main"
+    target-branch: "1.11.x"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    target-branch: "main"
+    target-branch: "1.11.x"
