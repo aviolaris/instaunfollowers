@@ -3,6 +3,8 @@ import logging
 import os.path
 import re
 import zipfile
+import multiprocessing
+from gunicorn.app.base import BaseApplication
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_paginate import Pagination
 from werkzeug.utils import secure_filename
@@ -167,9 +169,55 @@ def unfollowers():
                            pagination=pagination, )
 
 
+class InstaUnFollowers(BaseApplication):
+    """
+    This class extends the `gunicorn.app.base.BaseApplication` class and
+    provides custom implementation for the `load_config` and `load` methods.
+
+    Attributes:
+        options (dict): Options for the application.
+        application (obj): The application object.
+
+    Args:
+        application (obj): The application object.
+        options (dict, optional): Options for the Gunicorn server.
+
+    Note:
+        'init' and 'load' methods are implemented by WSGIApplication.
+    """
+
+    # pylint: disable=abstract-method
+    def __init__(self, application, options=None):
+        self.options = options or {}
+        self.application = application
+        super().__init__()
+
+    def load_config(self):
+        """
+        Load the configuration for the Gunicorn server.
+
+        This method sets the Gunicorn server configuration values based on the provided options.
+        """
+        config = {key: value for key, value in self.options.items()
+                  if key in self.cfg.settings and value is not None}
+        for key, value in config.items():
+            self.cfg.set(key.lower(), value)
+
+    def load(self):
+        """
+        Load the application.
+
+        Returns:
+            obj: The application object.
+        """
+        return self.application
+
+
 if __name__ == '__main__':
     create_upload_dir()
-    from waitress import serve
-
-    server_port = os.environ.get('PORT', '5000')
-    serve(app, host="0.0.0.0", port=server_port)
+    gunicorn_options = {
+        'bind': '0.0.0.0:5000',
+        'workers': (multiprocessing.cpu_count() * 2) + 1,
+        'timeout': 500,
+    }
+    InstaUnFollowers(app, gunicorn_options).run()
