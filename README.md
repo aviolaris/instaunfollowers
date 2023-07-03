@@ -5,9 +5,10 @@
 [![ci](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml/badge.svg)](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml)
 [![Pylint](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml/badge.svg)](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml)
 [![Coverage Status](https://coveralls.io/repos/github/aviolaris/instaunfollowers/badge.svg?branch=master)](https://coveralls.io/github/aviolaris/instaunfollowers?branch=master)
-[![GitHub Stars](https://img.shields.io/github/stars/aviolaris/instaunfollowers?color=%23048ebb&logo=github)](https://github.com/aviolaris/instaunfollowers)
-[![Docker Pulls](https://img.shields.io/docker/pulls/aviolaris/instaunfollowers?color=%23048ebb&label=pulls&logo=docker&logoColor=white)](https://hub.docker.com/r/aviolaris/instaunfollowers)
+[![GitHub Stars](https://img.shields.io/github/stars/aviolaris/instaunfollowers?color=blue&logo=github)](https://github.com/aviolaris/instaunfollowers)
+[![Docker Pulls](https://img.shields.io/docker/pulls/aviolaris/instaunfollowers?color=blue&label=pulls&logo=docker&logoColor=white)](https://hub.docker.com/r/aviolaris/instaunfollowers)
 
+[![Served with Gunicorn](https://img.shields.io/badge/Served%20with-Gunicorn-294729?logo=gunicorn&color=2fc051&logoColor=white)](https://gunicorn.org/)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/aviolaris/instaunfollowers/blob/master/README.md)
 [![gr](https://img.shields.io/badge/lang-gr-blue.svg)](https://github.com/aviolaris/instaunfollowers/blob/master/README.gr.md)
 
