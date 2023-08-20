@@ -38,5 +38,5 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# Uploads instagram data files:
+# Upload folder:
 uploads/
