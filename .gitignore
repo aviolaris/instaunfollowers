@@ -4,6 +4,7 @@
 # Flask:
 instance/
 .webassets-cache
+flask_session/
 
 # Environments:
 .env
@@ -36,3 +37,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+
+# Upload folder:
+uploads/

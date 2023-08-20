@@ -28,7 +28,7 @@ logging.basicConfig(format='%(asctime)s:%(levelname)s:%(filename)s:%(funcName)s:
 # Upload folder
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 # Current version
-CURRENT_VERSION = 'v1.11.8'
+CURRENT_VERSION = 'v1.11.9'
 # Update needed
 UPDATE_NEEDED = bool(update_needed(CURRENT_VERSION, get_latest_version()))
 
@@ -72,7 +72,8 @@ def find_unfollowers(file_path):
                 lambda file: 'followers' in os.path.basename(file) and file.endswith('.html'),
                 files))
             following_path = list(filter(
-                lambda file: 'following' in os.path.basename(file) and file.endswith('.html'),
+                lambda file: 'following' in os.path.basename(file) and file.endswith('.html')
+                             and 'hashtag' not in os.path.basename(file),
                 files))
             followers_html = instagram_file.read(followers_path[0]).decode('utf-8')
             following_html = instagram_file.read(following_path[0]).decode('utf-8')
