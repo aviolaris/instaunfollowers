@@ -68,18 +68,22 @@ def find_unfollowers(file_path):
         with zipfile.ZipFile(file_path) as instagram_file:
 
             files = instagram_file.namelist()
-            followers_path = list(filter(
+            followers_paths = list(filter(
                 lambda file: 'followers' in os.path.basename(file) and file.endswith('.html'),
                 files))
-            following_path = list(filter(
+            following_paths = list(filter(
                 lambda file: 'following' in os.path.basename(file) and file.endswith('.html')
                              and 'hashtag' not in os.path.basename(file),
                 files))
-            followers_html = instagram_file.read(followers_path[0]).decode('utf-8')
-            following_html = instagram_file.read(following_path[0]).decode('utf-8')
-            if not (followers_path or following_path):
+            if not (followers_paths or following_paths):
                 return None
             # else
+            followers_html = ""
+            for followers_path in followers_paths:
+                followers_html += instagram_file.read(followers_path).decode('utf-8')
+            following_html = ""
+            for following_path in following_paths:
+                following_html += instagram_file.read(following_path).decode('utf-8')
             following_list = parse_usernames(following_html)
             followers_list = parse_usernames(followers_html)
             unfollowers_list = list(set(following_list) - set(followers_list))
