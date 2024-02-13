@@ -74,7 +74,7 @@ Download your `Instagram Information File` (in HTML format) from <a href="https:
 
 Build the Docker image:
     
-    docker image build -t instaunfollowers .
+    docker image build --no-cache -t instaunfollowers .
     
 Run the Docker container:
 
@@ -84,7 +84,7 @@ Run the Docker container:
 
 Build the Docker image and run the Docker container:
 
-    docker-compose up --build -d
+    docker-compose up --build -d --force-recreate
 
 ## Stack
 
@@ -107,7 +107,7 @@ Build the Docker image and run the Docker container:
 
 ## Publicity
 
-<a href="https://iguru.gr/instaunfollowers-nomimos-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516969-4b48a927-33da-40f2-a161-fd521a094345.jpg"></a> <a href="https://www.techwar.gr/110338/instaunfollowers-o-nomimos-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516978-db730c0c-fc1b-43ce-aa03-86671e1b9161.jpg"></a> <a href="https://digiworld.gr/2022/12/07/instaunfollowers-%CE%BF-%CE%BD%CF%8C%CE%BC%CE%B9%CE%BC%CE%BF%CF%82-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516983-765da894-6cb1-4ab6-997b-0940d2780c53.jpg"></a>
+<a href="https://iguru.gr/instaunfollowers-nomimos-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516969-4b48a927-33da-40f2-a161-fd521a094345.jpg"></a> <a href="https://digiworld.gr/2022/12/07/instaunfollowers-%CE%BF-%CE%BD%CF%8C%CE%BC%CE%B9%CE%BC%CE%BF%CF%82-instagram-unfollower-tracker/"><img width="150" alt="preview" src="https://user-images.githubusercontent.com/48277853/206516983-765da894-6cb1-4ab6-997b-0940d2780c53.jpg"></a>
 
 ## License
 
