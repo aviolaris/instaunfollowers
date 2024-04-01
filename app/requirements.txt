@@ -1,5 +1,5 @@
 Flask==3.0.2
-flask-paginate==2023.10.24
+flask-paginate==2024.3.28
 Flask-Session==0.7.0
 gunicorn==21.2.0
 requests==2.31.0
