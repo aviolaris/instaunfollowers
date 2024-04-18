@@ -64,7 +64,7 @@ Run the following command in the command prompt.
 ### Use the application
 Navigate to the address: http://localhost:5000.
 
-Download your `Instagram Information File` (in HTML format) from <a href="https://www.instagram.com/download/request/">here</a> and upload it to the InstaUnFollowers web application to instantly receive a list of all the unfollowers of your account, without sending any requests to the Instagram servers.
+Download your `Instagram Information File` (in HTML format) from <a href="https://accountscenter.instagram.com/info_and_permissions/dyi/">here</a> and upload it to the InstaUnFollowers web application to instantly receive a list of all the unfollowers of your account, without sending any requests to the Instagram servers.
 
 <img width="1096" alt="preview" src="https://github.com/aviolaris/instaunfollowers/assets/48277853/0d75f2d1-e37b-4927-96cc-eb4149d4051c">
 
