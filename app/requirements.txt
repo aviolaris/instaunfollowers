@@ -3,4 +3,4 @@ flask-paginate==2023.10.24
 Flask-Session==0.8.0
 gunicorn==21.2.0
 requests==2.31.0
-cachelib==0.12.0
+cachelib==0.13.0
