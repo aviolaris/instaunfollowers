@@ -1,6 +1,7 @@
-Flask==3.0.3
-flask-paginate==2024.4.12
-Flask-Session==0.8.0
-gunicorn==22.0.0
-requests==2.31.0
 cachelib==0.13.0
+Flask==3.0.3
+Flask-Session==0.8.0
+flask-paginate==2024.4.12
+gunicorn==22.0.0
+msgspec==0.18.6
+requests==2.31.0
