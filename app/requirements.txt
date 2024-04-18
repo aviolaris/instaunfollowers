@@ -1,4 +1,4 @@
-Flask==3.0.2
+Flask==3.0.3
 flask-paginate==2023.10.24
 Flask-Session==0.8.0
 gunicorn==21.2.0
