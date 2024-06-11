@@ -28,7 +28,7 @@ logging.basicConfig(format='%(asctime)s:%(levelname)s:%(filename)s:%(funcName)s:
 # Upload folder
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 # Current version
-CURRENT_VERSION = 'v1.11.17'
+CURRENT_VERSION = 'v1.11.18'
 # Update needed
 UPDATE_NEEDED = bool(update_needed(CURRENT_VERSION, get_latest_version()))
 
