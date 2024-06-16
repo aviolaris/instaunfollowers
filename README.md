@@ -4,7 +4,7 @@
 
 [![ci](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml/badge.svg)](https://github.com/aviolaris/instaunfollowers/actions/workflows/ci.yml)
 [![Pylint](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml/badge.svg)](https://github.com/aviolaris/InstaUnFollowers/actions/workflows/pylint.yml)
-[![Coverage Status](https://coveralls.io/repos/github/aviolaris/instaunfollowers/badge.svg?branch=master)](https://coveralls.io/github/aviolaris/instaunfollowers?branch=master)
+[![codecov](https://codecov.io/gh/aviolaris/instaunfollowers/graph/badge.svg?token=52RL2Y9LL1)](https://codecov.io/gh/aviolaris/instaunfollowers)
 [![GitHub Stars](https://img.shields.io/github/stars/aviolaris/instaunfollowers?color=blue&logo=github)](https://github.com/aviolaris/instaunfollowers)
 [![Docker Pulls](https://img.shields.io/docker/pulls/aviolaris/instaunfollowers?color=blue&label=pulls&logo=docker&logoColor=white)](https://hub.docker.com/r/aviolaris/instaunfollowers)
 
