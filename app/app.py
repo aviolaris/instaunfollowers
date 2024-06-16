@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_paginate import Pagination
 from werkzeug.utils import secure_filename
 from flask_session import Session
-from .upd import get_latest_version, update_needed
+from app.updsys.upd import get_latest_version, update_needed
 
 app = Flask(__name__)
 app.secret_key = "secret_key"

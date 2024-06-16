@@ -1,6 +1,6 @@
 """Imports"""
 from unittest import TestCase
-from app.upd import update_needed
+from app.updsys.upd import update_needed
 
 
 class Test(TestCase):
