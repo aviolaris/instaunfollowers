@@ -27,7 +27,7 @@ logging.basicConfig(format='%(asctime)s:%(levelname)s:%(filename)s:%(funcName)s:
 # Upload folder
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 # Current version
-CURRENT_VERSION = 'v1.12.0'
+CURRENT_VERSION = 'v1.13.0'
 # Update needed
 UPDATE_NEEDED = bool(update_needed(CURRENT_VERSION, get_latest_version()))
 
@@ -165,7 +165,7 @@ def unfollowers():
     pagination = Pagination(page=page,
                             per_page=per_page,
                             total=total,
-                            css_framework='bootstrap4')
+                            css_framework='bootstrap5')
     return render_template('unfollowers.html',
                            unfollowers=pagination_unfollowers,
                            page=page,

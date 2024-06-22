@@ -3,102 +3,106 @@
 <head>
     <meta charset="utf-8">
     <title>InstaUnFollowers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Find out who is not following you back on Instagram.">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
-    <script src="{{ url_for('static', filename='js/jquery-3.6.4.slim.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap5.min.js') }}"></script>
     <script async defer src="{{ url_for('static', filename='js/buttons.js') }}"></script>
     <script>
         function showNoFileModal() {
-            $('#noFileModal').modal('show');
+            const noFileModal = new bootstrap.Modal(document.getElementById('noFileModal'));
+            noFileModal.show();
         }
-
         function showErrorModal() {
-            $('#errorModal').modal('show');
+            const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+            errorModal.show();
         }
     </script>
     {% if request.args.get('invalid_file_structure') == '1' %}
         <script>
-            $(document).ready(function () {
-                showErrorModal()
+            document.addEventListener('DOMContentLoaded', function () {
+                showErrorModal();
             });
         </script>
     {% endif %}
 </head>
 <body>
-<div class="upload-form-dark">
-    <div class="mx-auto pt-5" style="width:280px; border: 2px white">
-        <a class="github-button" href="https://github.com/aviolaris"
-           data-color-scheme="dark_high_contrast"
-           data-size="large"
-           data-show-count="true"
-           aria-label="Follow @aviolaris on GitHub">Follow @aviolaris</a>
-        <a class="github-button" href="https://github.com/aviolaris/instaunfollowers"
-           data-color-scheme="dark_high_contrast"
-           data-icon="octicon-star"
-           data-size="large"
-           data-show-count="true"
-           aria-label="Star aviolaris/instaunfollowers on GitHub">Star</a>
-    </div>
-    <form class="d-flex justify-content-center form-inline my-2 my-lg-0" action="/" method="POST"
+<div class="github-buttons">
+    <a class="github-button" href="https://github.com/aviolaris"
+       data-color-scheme="dark_high_contrast"
+       data-size="large"
+       data-show-count="true"
+       aria-label="Follow Andreas Violaris on GitHub">Follow @aviolaris</a>
+    <a class="github-button" href="https://github.com/aviolaris/instaunfollowers"
+       data-color-scheme="dark_high_contrast"
+       data-icon="octicon-star"
+       data-size="large"
+       data-show-count="true"
+       aria-label="Star InstaUnFollowers on GitHub">Star</a>
+</div>
+<div class="upload-form-dark vh-100 d-flex flex-column justify-content-center align-items-center">
+    <form class="d-flex flex-column align-items-center w-100 px-3" action="/" method="POST"
           enctype="multipart/form-data">
-        <h5 style="padding-bottom: 20px;">Upload your instagram information file.</h5>
-        <input class="form-control form-control-lg" type="file" accept="application/zip" name="file"
-               placeholder="Search">
-        <input type="submit" class="btn-lg btn-outline-light mt-4"
-               onclick="document.querySelector('input[type=file]').files.length ?
-                               this.form.submit() : showNoFileModal(); return false;"
-               value="Upload">
+        <h5 class="pb-3 text-center" aria-live="polite">Upload your Instagram information file.</h5>
+        <input class="form-control form-control-lg mb-3" type="file" accept="application/zip" name="file"
+                placeholder="Search">
+        <button type="submit" class="btn btn-outline-light btn-lg w-50"
+                onclick="document.querySelector('input[type=file]').files.length ?
+                this.form.submit() : showNoFileModal(); return false;">
+            Upload
+        </button>
     </form>
-    {% if session['update_needed'] == True %}
-        <a href="https://github.com/aviolaris/instaunfollowers/releases" class="blink"><b>Update available!</b></a>
+    {% if session['update_needed'] %}
+        <div class="mt-3">
+            <a href="https://github.com/aviolaris/instaunfollowers/releases" class="blink">
+                <b>Update available!</b>
+            </a>
+        </div>
     {% endif %}
-    <div class="modal" tabindex="-1" role="dialog" id="errorModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">InstaUnFollowers</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p style="text-align: justify;">It seems that the structure of this archive is invalid,
-                        which is likely due to periodic modifications made by Meta to Instagram's information
-                        file in order to prevent tools like the present one from operating.
-                        Please file an issue so that the problem can be addressed.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary modal-btn"
-                            onclick="window.location.href='https://github.com/aviolaris/instaunfollowers/issues'">
-                        <svg viewBox="0 0 16 16" width="17" height="17" class="align-middle d-inline-block">
-                            <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="white"></path>
-                            <path fill-rule="evenodd"
-                                  d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"
-                                  fill="white"></path>
-                        </svg>
-                        File an Issue
-                    </button>
-                    <button type="button" class="btn btn-primary modal-btn"
-                            onclick="window.location.href = '/';">OK
-                    </button>
-                </div>
+</div>
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">InstaUnFollowers</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" role="alert">
+                <p style="text-align: justify;">It seems that the structure of this archive is invalid,
+                    which is likely due to periodic modifications made by Meta to Instagram's information
+                    file in order to prevent tools like the present one from operating.
+                    Please file an issue so that the problem can be addressed.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"
+                        onclick="window.location.href='https://github.com/aviolaris/instaunfollowers/issues'">
+                    <svg viewBox="0 0 16 16" width="17" height="17" class="align-middle d-inline-block">
+                        <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="white"></path>
+                        <path fill-rule="evenodd"
+                              d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"
+                              fill="white"></path>
+                    </svg>
+                    File an Issue
+                </button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '/';">OK</button>
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="noFileModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">InstaUnFollowers</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p style="text-align: justify;">You have not chosen a file to upload.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary modal-btn" data-dismiss="modal">OK</button>
-                </div>
+</div>
+<div class="modal fade" id="noFileModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="noFileModalLabel">InstaUnFollowers</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" role="alert">
+                <p>You have not chosen a file to upload.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
