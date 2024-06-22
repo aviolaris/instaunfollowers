@@ -13,13 +13,16 @@ body {
     margin-left: auto;
     color: #dedede;
     background-color: #343434;
-
 }
 
 .page-item.disabled .page-link {
     color: #868e96;
     background-color: #494949;
     border-color: #ddd;
+}
+
+.active > .page-link, .page-link.active {
+    border-color: white;
 }
 
 .table td, .table th {
@@ -32,11 +35,29 @@ a {
     color: #fff;
 }
 
-a:hover {
-    color: #11ff00;
-}
-
 .btn-group-lg > .btn, .btn-lg:hover {
     color: black;
     cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .card {
+        margin: 0 10px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+    .table th, .table td {
+        white-space: nowrap;
+    }
+    .card-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .pagination-container {
+        width: 100%;
+    }
+    .pagination-container .pagination {
+        justify-content: center;
+    }
 }

@@ -1,24 +1,19 @@
 .upload-form-dark {
     height: 100vh;
-    height: 100vh;
     background: black url(../images/background.jpg) no-repeat center;
     background-size: cover;
     position: relative;
+    padding: 20px;
 }
 
 .upload-form-dark form {
     max-width: 440px;
-    min-width: 440px;
     width: 90%;
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 4px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #e5e5e5;
     box-shadow: 0px -1px 2px 2px #818181;
-    background-color: transparent;
 }
 
 .upload-form-dark form .form-control {
@@ -40,11 +35,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     margin: auto;
 }
 
@@ -103,4 +93,21 @@
 .blink:hover {
     text-decoration: none;
     color: red;
+}
+
+.github-buttons {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.upload-form-dark {
+    position: relative;
+    z-index: 1;
 }

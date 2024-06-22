@@ -2,44 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap4.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/unfollowers.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap5.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/unfollowers.css') }}">
     <title>InstaUnFollowers</title>
 </head>
 <body>
-<div class="d-flex align-items-center justify-content-center" style="height: 800px;">
+<div class="d-flex align-items-center justify-content-center min-vh-100">
     <div class="container-sm">
-        <div class="table-responsive">
-            <table class="table table-hover table-dark">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Username</th>
-                    <th>Profile Link</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for unfollower in unfollowers %}
-                    <tr>
-                        <td>{{ loop.index + (page - 1) * per_page }}</td>
-                        <td>{{ unfollower }}</td>
-                        <td>
-                            <a href="https://www.instagram.com/{{ unfollower }}">
-                                https://www.instagram.com/{{ unfollower }}</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-            {{ pagination.links }}
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-            <a href="/">
-                <input type="submit" action="/" class="btn-lg btn-outline-light" value="Back">
-            </a>
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">Unfollowers List</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Profile Link</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for unfollower in unfollowers %}
+                            <tr>
+                                <td>{{ loop.index + (page - 1) * per_page }}</td>
+                                <td>{{ unfollower }}</td>
+                                <td>
+                                    <a href="https://www.instagram.com/{{ unfollower }}" class="text-white">
+                                        https://www.instagram.com/{{ unfollower }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                <div class="pagination-container mb-2 mb-sm-0">
+                    {{ pagination.links }}
+                </div>
+                <div>
+                    <a href="/">
+                        <button class="btn btn-outline-light">Back</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
