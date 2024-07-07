@@ -31,6 +31,10 @@
     cursor: pointer;
 }
 
+.btn-close {
+	filter: invert(1);
+}
+
 .modal-dialog {
     display: flex;
     align-items: center;
