@@ -28,4 +28,5 @@ def fetch_url(url):
         sys.exit(1)
 
 
-fetch_url('http://localhost:5000')
+if __name__ == "__main__":
+    fetch_url('http://localhost:5000')
