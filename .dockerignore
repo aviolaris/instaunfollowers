@@ -2,3 +2,7 @@
 /.github
 /.idea
 /.pytest_cache
+/tests
+README.md
+README.gr.md
+LICENSE.md
