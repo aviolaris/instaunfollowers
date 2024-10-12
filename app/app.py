@@ -1,10 +1,9 @@
 """Imports"""
 import logging
 import os.path
+import platform
 import re
 import zipfile
-import multiprocessing
-from gunicorn.app.base import BaseApplication
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_paginate import Pagination
 from werkzeug.utils import secure_filename
@@ -36,13 +35,14 @@ def create_upload_dir():
     """
     Create the upload directory if it does not exist.
     """
-    try:
-        os.makedirs(UPLOAD_FOLDER)
-        logging.info("Directory %s created successfully.", {UPLOAD_FOLDER})
-    except FileExistsError:
-        logging.info("Directory %s already exists.", {UPLOAD_FOLDER})
-    except OSError as exc:
-        logging.error("Error creating directory: %s", {exc})
+    if not os.path.exists(UPLOAD_FOLDER):
+        try:
+            os.makedirs(UPLOAD_FOLDER)
+            logging.info("Directory %s created successfully.", UPLOAD_FOLDER)
+        except OSError as exc:
+            logging.error("Error creating directory: %s", exc)
+    else:
+        logging.info("Directory %s already exists.", UPLOAD_FOLDER)
 
 
 def parse_usernames(html_source):
@@ -172,56 +172,63 @@ def unfollowers():
                            per_page=per_page,
                            pagination=pagination, )
 
+if platform.system() != "Windows":
+    from gunicorn.app.base import BaseApplication
+    import multiprocessing
 
-class InstaUnFollowers(BaseApplication):
-    """
-    This class extends the `gunicorn.app.base.BaseApplication` class and
-    provides custom implementation for the `load_config` and `load` methods.
-
-    Attributes:
-        options (dict): Options for the application.
-        application (obj): The application object.
-
-    Args:
-        application (obj): The application object.
-        options (dict, optional): Options for the Gunicorn server.
-
-    Note:
-        'init' and 'load' methods are implemented by WSGIApplication.
-    """
-
-    # pylint: disable=abstract-method
-    def __init__(self, application, options=None):
-        self.options = options or {}
-        self.application = application
-        super().__init__()
-
-    def load_config(self):
+    class InstaUnFollowers(BaseApplication):
         """
-        Load the configuration for the Gunicorn server.
+        This class extends the `gunicorn.app.base.BaseApplication` class and
+        provides custom implementation for the `load_config` and `load` methods.
 
-        This method sets the Gunicorn server configuration values based on the provided options.
+        Attributes:
+            options (dict): Options for the application.
+            application (obj): The application object.
+
+        Args:
+            application (obj): The application object.
+            options (dict, optional): Options for the Gunicorn server.
+
+        Note:
+            'init' and 'load' methods are implemented by WSGIApplication.
         """
-        config = {key: value for key, value in self.options.items()
-                  if key in self.cfg.settings and value is not None}
-        for key, value in config.items():
-            self.cfg.set(key.lower(), value)
 
-    def load(self):
-        """
-        Load the application.
+        # pylint: disable=abstract-method
+        def __init__(self, application, options=None):
+            self.options = options or {}
+            self.application = application
+            super().__init__()
 
-        Returns:
-            obj: The application object.
-        """
-        return self.application
+        def load_config(self):
+            """
+            Load the configuration for the Gunicorn server.
+
+            This method sets the Gunicorn server configuration values based on the provided options.
+            """
+            config = {key: value for key, value in self.options.items()
+                      if key in self.cfg.settings and value is not None}
+            for key, value in config.items():
+                self.cfg.set(key.lower(), value)
+
+        def load(self):
+            """
+            Load the application.
+
+            Returns:
+                obj: The application object.
+            """
+            return self.application
 
 
-if __name__ == '__main__':
-    create_upload_dir()
-    gunicorn_options = {
-        'bind': '0.0.0.0:5000',
-        'workers': (multiprocessing.cpu_count() * 2) + 1,
-        'timeout': 500,
-    }
-    InstaUnFollowers(app, gunicorn_options).run()
+    if __name__ == '__main__':
+        create_upload_dir()
+        gunicorn_options = {
+            'bind': '0.0.0.0:5000',
+            'workers': (multiprocessing.cpu_count() * 2) + 1,
+            'timeout': 500,
+        }
+        InstaUnFollowers(app, gunicorn_options).run()
+else:
+    if __name__ == '__main__':
+        create_upload_dir()
+        app.run(debug=True, host="0.0.0.0", port=5000)
