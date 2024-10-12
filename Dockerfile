@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION=3.12
-FROM alpine:3.20.1 as build-stage
+FROM alpine:3.20.1 AS build-stage
 ARG PYTHON_VERSION
 COPY . /app/instaunfollowers/
 RUN apk add --no-cache python3~=${PYTHON_VERSION} py3-pip
