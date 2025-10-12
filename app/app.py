@@ -2,12 +2,14 @@
 import logging
 import os.path
 import platform
-import re
 import zipfile
+from urllib.parse import urlparse
+
+from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_paginate import Pagination
-from werkzeug.utils import secure_filename
 from flask_session import Session
+
 from app.updsys.upd import get_latest_version, update_needed
 
 app = Flask(__name__)
@@ -45,18 +47,25 @@ def create_upload_dir():
         logging.info("Directory %s already exists.", UPLOAD_FOLDER)
 
 
-def parse_usernames(html_source):
+def parse_usernames(html_source: str) -> list[str]:
     """
     Parse usernames and links.
     """
     if not isinstance(html_source, str):
         raise TypeError('html_source must be a string')
-
-    usernames_regexp = r'(?<=href="https://www\.instagram\.com/)[^"]+'
-    try:
-        return re.findall(usernames_regexp, html_source)
-    except Exception as exc:
-        raise ValueError(f'Error while parsing html source: {exc}') from exc
+    usernames: list[str] = []
+    unique_usernames: set[str] = set()
+    for segment in html_source.split('href="')[1:]:
+        href_value = segment.split('"', 1)[0]
+        parsed_url = urlparse(href_value)
+        path_segment = (parsed_url.path or "").strip("/")
+        if not path_segment:
+            continue
+        username_candidate = path_segment.split("/")[-1].lower()
+        if username_candidate not in unique_usernames:
+            unique_usernames.add(username_candidate)
+            usernames.append(username_candidate)
+    return usernames
 
 
 def find_unfollowers(file_path):
@@ -172,9 +181,11 @@ def unfollowers():
                            per_page=per_page,
                            pagination=pagination, )
 
+
 if platform.system() != "Windows":
     from gunicorn.app.base import BaseApplication
     import multiprocessing
+
 
     class InstaUnFollowers(BaseApplication):
         """
