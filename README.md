@@ -1,5 +1,3 @@
-
-
 ## InstaUnFollowers - The Legal Instagram Unfollower Tracker
 
 <a href="https://github.com/aviolaris/InstaUnFollowers"><img src="https://user-images.githubusercontent.com/48277853/201927276-9c06fd0d-51c7-4086-9903-384e70a33c1a.png" alt="drawing" width="400"/></a>
